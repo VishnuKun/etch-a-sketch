@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
         createGrid(size);
     })
 })
-
+//global variables 
+let color = "black";
+let click = false;
 
 //accessing the grid container
 let gridBox = document.querySelector("#grid");
@@ -21,8 +23,9 @@ function createGrid(size=16) {
         let div = document.createElement("div");
         div.className = "square";
         div.id = "square"+i;
+        div.addEventListener("mouseover", colorDiv);
         gridBox.insertAdjacentElement("beforeend", div);
-    }
+    } 
 
 
 }
@@ -45,3 +48,28 @@ function getSize() {
     }
 
 }
+
+//change color of the divs
+function colorDiv() {
+    //set color to random if random chosen
+    if (color == "random") {
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    }
+    //set default black 
+    else {
+        this.style.backgroundColor = "black";
+    }
+}
+
+
+function setColor(colorChoice) {
+    color = colorChoice
+}
+
+//change color of the divs to white on clicking reset button
+function resetColor() {
+
+}
+
+
+
