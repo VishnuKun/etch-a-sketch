@@ -13,7 +13,8 @@ body {
 }
 
 .header {
-    background-color: rgb(226, 232, 255);
+    background-color: rgb(247, 247, 247);
+    border-bottom: 1px solid black;
 }
 
 .content {
