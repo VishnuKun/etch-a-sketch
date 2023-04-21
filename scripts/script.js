@@ -22,3 +22,9 @@ function createGrid(size=16) {
 
 
 }
+
+//function to get the size from clicking select button
+function getSize() {
+    let input = parseFloat(input("Enter a number."));
+
+}
