@@ -1,6 +1,10 @@
 //run functions only after dom content is loaded
 document.addEventListener("DOMContentLoaded", function() {
-    
+    let btn_popup = document.getElementById("size");
+    btn_popup.addEventListener("click", function() {
+        let size = getSize();
+        createGrid(size);
+    })
 })
 
 
@@ -25,6 +29,19 @@ function createGrid(size=16) {
 
 //function to get the size from clicking select button
 function getSize() {
-    let input = parseFloat(input("Enter a number."));
+    let input = prompt("Enter a number.");
+    let message = document.getElementById("message");
+    //checking the input
+    //when input is not a number
+    if(input == "") {
+        message.innerHTML = "Not a number, please enter a number only.";
+    }
+    else if(input < 0 || input > 100) {
+        message.innerHTML = "Limit crossed! Please enter a number between 1 and 100.";
+    }
+    else {
+        message.innerHTML = "Success! Now you can play!";
+        return input;
+    }
 
 }
