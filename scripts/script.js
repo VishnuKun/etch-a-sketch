@@ -1,3 +1,9 @@
+//run functions only after dom content is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    
+})
+
+
 //accessing the grid container
 let gridBox = document.querySelector("#grid");
 //function to create grid as per the size
@@ -16,5 +22,3 @@ function createGrid(size=16) {
 
 
 }
-
-createGrid();
