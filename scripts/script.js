@@ -1,5 +1,19 @@
 //run functions only after dom content is loaded
 document.addEventListener("DOMContentLoaded", function() {
+
+    document.querySelector("body").addEventListener("click", function(e) {
+        if(e.target.tagName != "BUTTON") {
+            click = !click;
+            let draw = document.getElementById("draw");
+            if(click) {
+                draw.innerHTML = "You can draw now!";
+            }
+            else {
+                draw.innerHTML = "You can't draw yet!";
+            }
+        }
+    })
+
     let btn_popup = document.getElementById("size");
     btn_popup.addEventListener("click", function() {
         let size = getSize();
@@ -13,7 +27,7 @@ let click = false;
 //accessing the grid container
 let gridBox = document.querySelector("#grid");
 //function to create grid as per the size
-function createGrid(size=16) {
+function createGrid(size) {
     //split container into columns and rows
     gridBox.style.display = "grid";
     gridBox.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -51,13 +65,15 @@ function getSize() {
 
 //change color of the divs
 function colorDiv() {
-    //set color to random if random chosen
-    if (color == "random") {
-        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-    }
-    //set default black 
-    else {
-        this.style.backgroundColor = "black";
+    if(click) {
+        //set color to random if random chosen
+        if (color == "random") {
+            this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        }
+        //set default black 
+        else {
+            this.style.backgroundColor = "black";
+        }
     }
 }
 
