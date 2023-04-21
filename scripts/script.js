@@ -67,8 +67,9 @@ function setColor(colorChoice) {
 }
 
 //change color of the divs to white on clicking reset button
-function resetColor() {
-
+function reset() {
+    let divs = document.querySelectorAll(".square");
+    divs.forEach(div => div.style.backgroundColor = "white");
 }
 
 
